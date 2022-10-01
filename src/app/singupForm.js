@@ -2,12 +2,14 @@ import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebase
 import { auth } from './firebase.js'
 
 
-const signupForm = document.querySelector('#signupForm');
+const signupForm = document.querySelector('#signup-form');
+console.log(signupForm)
 
 signupForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = signupForm['signupEmail'].value;
     const password = signupForm['signupPassword'].value;
+    console.log(email, password);
 
     try {
         const userCredentials = await createUserWithEmailAndPassword(auth, email, password)
@@ -19,7 +21,7 @@ signupForm.addEventListener('submit', async (e) => {
 
     } catch (error) {
         console.log(error)
-    }
+    } 
 
 
 
